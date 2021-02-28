@@ -9,18 +9,16 @@
 
 require 'faker'
 
-Team.destroy_all
-Player.destroy_all
-
-10.times do
-  Team.create(
+10.times do |i|
+  team = Team.create(
     name:Faker::Sports::Basketball.team
     coach:Faker::Sports::Basketball.coach
   )
-  Player.create(
+  4.times do |j| 
+    player = Player.create(
     name:Faker::Sports::Basketball.player
     position:Faker::Sports::Basketball.position
+    team_id: team.id,
   )
 end
-puts "seeded #{Team.all.size} Teams"
-puts "first team name: #{Team.first.name}"
+puts "seeded"
