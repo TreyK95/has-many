@@ -16,7 +16,7 @@ Team.destroy_all
   x = Faker::Sports::Basketball.coach
   y = Faker::Sports::Basketball.player
   z = Faker::Sports::Basketball.position
-  Team.create(name: "#{x} #{y} #{z}")
+  Team.create(name: "#{w} #{x} #{y} #{z}")
 end
 puts "seeded #{Team.all.size} Teams"
 puts "first team name: #{Team.first.name}"
