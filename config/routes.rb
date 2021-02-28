@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'teams/index'
+  get 'teams/show'
+  get 'teams/new'
+  get 'teams/edit'
+  get 'teams/create'
+  get 'teams/update'
+  get 'teams/destroy'
   get 'players/index'
   get 'players/show'
   get 'players/new'
