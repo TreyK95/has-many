@@ -10,13 +10,17 @@
 require 'faker'
 
 Team.destroy_all
+Player.destroy_all
 
 10.times do
-  w = Faker::Sports::Basketball.team
-  x = Faker::Sports::Basketball.coach
-  y = Faker::Sports::Basketball.player
-  z = Faker::Sports::Basketball.position
-  Team.create(name: "#{w} #{x} #{y} #{z}")
+  Team.create(
+    name:Faker::Sports::Basketball.team
+    coach:Faker::Sports::Basketball.coach
+  )
+  Player.create(
+    name:Faker::Sports::Basketball.player
+    position:Faker::Sports::Basketball.position
+  )
 end
 puts "seeded #{Team.all.size} Teams"
 puts "first team name: #{Team.first.name}"
