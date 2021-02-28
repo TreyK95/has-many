@@ -1,15 +1,21 @@
 class TeamsController < ApplicationController
+  before_action :set_team, only: [:show, :update, :edit, :destroy]
+
   def index
     @teams = Teams.all
-    render component: "Teams", props: {teams: @teams, test:'test val'}
+    # render component: "Teams", props: {teams: @teams, test:'test val'}
   end
 
   def show
-    @players = Player.get_all_players
-    render component: "AllPlayers", props:{players: @players}
+    # @players = Player.get_all_players
+    # render component: "AllPlayers", props:{players: @players}
+    @team = Team.find{params[:id]}
+    
+    render component "Team", props:{team:  @team, players: @team.players}
   end
 
   def new
+    @team = Team.new
   end
 
   def edit
