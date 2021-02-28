@@ -9,16 +9,24 @@
 
 require 'faker'
 
-10.times do |i|
+Team.destroy_all
+Player.destroy_all
+
+10.times do
   team = Team.create(
-    name:Faker::Sports::Basketball.team
-    coach:Faker::Sports::Basketball.coach
-  )
-  4.times do |j| 
-    player = Player.create(
-    name:Faker::Sports::Basketball.player
-    position:Faker::Sports::Basketball.position
-    team_id: team.id,
+    name: Faker::Sports::Basketball.team,
+    coach: Faker::Sports::Basketball.coach,
   )
 end
-puts "seeded"
+  4.times do
+    player = Player.create(
+      name: Faker::Sports::Basketball.player,
+      position: Faker::Sports::Basketball.position,
+      team_id: team.id,
+    )
+  end
+end
+
+puts "seeded #{Team.all.size} Teams"
+puts "first team name: #{Team.first.name}"
+puts "seeded #{Player.all.size} Player"
